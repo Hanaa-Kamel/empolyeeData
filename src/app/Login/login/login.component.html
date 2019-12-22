@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+            <div class="myform ">
+                <div class="logo mb-3">
+                    <div class="col-md-12 text-center">
+                        <h1>Empolyee Login</h1>
+                    </div>
+                </div>
+                <!-- <form #newFormUser="ngForm" (submit)="saveUser($event)"> -->
+                <form #newFormUser="ngForm" (ngSubmit)="saveUser()">
+                    <div class="form-group ">
+                        <label for="userName" class="col-sm-2 col-form-label"> <h3>Name</h3></label>
+                        <div class="col-sm-12">
+                            <input maxlength="5" pattern="[a-zA-Z ]*" #UserName="ngModel" type="text" [(ngModel)]="newUser.employee_name" class="form-control" name="userName" id="userName" placeholder="Name" required>
+                            <div [hidden]="UserName.valid || UserName.pristine" class="alert alert-danger">
+                                Name required at least 5 char.
+                            </div>
+
+
+                            <!-- <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors.minlength">
+    Name must be at least 4 characters long.
+  </div>
+  <div *ngIf="name.errors.forbiddenName">
+    Name cannot be Bob.
+  </div> -->
+
+
+                        </div>
+                    </div>
+                    <div class="form-group  ">
+                        <label for="userSalary" class="col-sm-2 col-form-label"><h3>Salary</h3></label>
+
+                        <div class="col-sm-12">
+                            <input #userSalary="ngModel" type="number" [(ngModel)]="newUser.employee_salary" class="form-control" name="userSalary" id="userSalary" placeholder="Salary" required>
+                            <div [hidden]="userSalary.valid || userSalary.pristine" class="alert alert-danger">
+                                Salary is required
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group  ">
+                        <label for="userAge" class="col-sm-2 col-form-label"> <h3>Age</h3></label>
+                        <div class="col-sm-12">
+                            <input #userAge="ngModel" type="number" [(ngModel)]="newUser.employee_age" class="form-control" name="userAge" id="userAge" placeholder="Age" required>
+                            <div [hidden]="userAge.valid || userAge.pristine" class="alert alert-danger">
+                                Age is required
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 text-center ">
+                        <button type="submit" [disabled]="!newFormUser.valid" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
